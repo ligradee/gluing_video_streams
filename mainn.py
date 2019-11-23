@@ -23,16 +23,16 @@ def assembly(frame, foreground, n, i):
 	width, height, layers =  foreground.shape
 	if(2 < n <= 5):
 		if(i <= 3):
-			width_max = width_max - width * (i-2)
+			width_max = width_max - width * i
 		if(3 < i <= 5):
 			height_max = height_max - height
-			width_max = width_max - width * (i-2)
+			width_max = width_max - width * i
 	if (5 < n):
 		if(i <= 9):
-			width_max = width_max - width * (i-2)
+			width_max = width_max - width * i
 		if(9 < i):
 			height_max = height
-			width_max = width_max - width * (i-2)
+			width_max = width_max - width * i
 	print(height_max - height, height_max, height, width_max - width, width_max, width)
 	added_image = cv2.addWeighted(frame[height_max - height:height_max,width_max - width:width_max,:],0,foreground[0:height,0:width,:],1,0)
 	frame[height_max - height:height_max,width_max - width:width_max,:] = added_image	
